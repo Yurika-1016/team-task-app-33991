@@ -1,0 +1,46 @@
+.main-new{
+  background-color: lavenderblush;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  padding-top: 50px;
+}
+.title-new{
+  font-family: comic sans MS;
+  font-size: 25px;
+}
+.field-group{
+  margin: 20px auto;
+  padding:20px;
+  background-color: rgba(255, 255, 255,0.5);
+  border-radius: 30px;
+  width: 50vw;
+}
+
+.field{
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.label_checkbox{
+  margin-right:10vw ;
+}
+
+.image-field{
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 20px;
+}
+
+.image-btn{
+  font-size: 12px;
+}
+
+.action-btn{
+  border-radius: 5px;
+  border: 1px solid white;
+  width: 150px;
+  height:40px;
+  background-color: lightsalmon;
+}

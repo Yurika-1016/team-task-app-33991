@@ -1,0 +1,35 @@
+<div class="main-new">
+  <div class="title-new">Sign up</div>
+
+    <div class="field-group">
+      <%= form_with model: @user, url: user_session_path, local: true  do |f| %>
+      <%= render "shared/error_messages", locals:{model:@user}, model: f.object %>
+    
+      <div class="field">
+          <div class="label_name">
+            <%= f.label :email %>
+          </div>
+          <div class="label_form_area">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label_name">
+            <%= f.label :password %>
+          </div>
+          <div class="label_form_area">
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
+        </div>
+
+      <div class="actions">
+        <%= f.submit "ログイン", class:"action-btn" %>
+      </div>
+    </div>
+    <% end %>
+
+    <%= link_to "Sign up", new_user_registration_path %>  /
+    <%= link_to "Top page", root_path %>
+  
+</div>
