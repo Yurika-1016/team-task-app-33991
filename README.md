@@ -107,10 +107,10 @@ https://github.com/Yurika-1016/team-task-app-33991.git
 |           column           |      type       |                            option                                |
 | -------------------------- | --------------- | ---------------------------------------------------------------- |
 |           name             |     string      |                           null:false                             |
-|       time_required        |     datetime    |                           null:false                             |
-|   implementation_date      |     datetime    |                           null:false                             |
+|       time_required_id     |     integer     |              null:false, numericality: { other_than: 0 }         |
+|   implementation_date      |     date        |                           null:false                             |
 |       dead_line_date       |     datetime    |                           null:false                             |
-|       operator_id          |     integer     |                           null:false                             |
+|       operator_id          |     integer     |              null:false, numericality: { other_than: 0 }         |
 |          user_id           |    references   |                  null:false, foreign_keys: true                  |
           |
 ### Association

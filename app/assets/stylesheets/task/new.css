@@ -1,0 +1,40 @@
+.main-task-new{
+  background-color: antiquewhite;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.task-field-group{
+  margin: 20px auto;
+  padding:20px;
+  background-color: rgba(255, 255, 255,0.5);
+  width: 70vw;
+}
+
+.task-field{
+  margin: 20px;
+}
+
+.task-label_form{
+  width: 60vw;
+}
+
+.task-label_name{
+  margin-bottom: 10px;
+}
+
+.select-box{
+  width: 120px;
+}
+
+
+
+.task-action-btn{
+  border-radius: 5px;
+  border: 1px solid white;
+  width: 200px;
+  height:40px;
+  background-color: burlywood;
+}
