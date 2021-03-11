@@ -9,4 +9,5 @@ class User < ApplicationRecord
   end
 
   has_one_attached :image
+  has_many :tasks
 end

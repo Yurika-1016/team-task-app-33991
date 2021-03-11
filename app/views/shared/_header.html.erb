@@ -11,7 +11,7 @@
   <% end %>
   <div class= "right-main">
     <% if user_signed_in? %>
-      <%= link_to "new task", "#", class:"header-btn" %>
+      <%= link_to "new task", new_task_path, class:"header-btn" %>
       <%= link_to "#{current_user.last_name} #{current_user.first_name}さん", "#", class:"header-btn"%>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"header-btn"%>
     <% else %>
