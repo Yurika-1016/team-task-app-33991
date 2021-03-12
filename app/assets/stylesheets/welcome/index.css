@@ -7,6 +7,10 @@
   font-family: comic sans MS;
 }
 
+.welcome-contents-list{
+  list-style: none;
+}
+
 .welcome-title{
   margin-top: 20px;
   font-size: 15px;
@@ -31,5 +35,4 @@
   border-radius: 4px;
   box-shadow: 0px 0px 0px 5px cornflowerblue;
   border: dashed 1px #FFF;
-  list-style: none;
 }
