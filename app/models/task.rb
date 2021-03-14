@@ -10,4 +10,12 @@ class Task < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :time_required
+
+  def self.search(search)
+    if search != ''
+      Task.where('name LIKE(?)', "%#{search}%")
+    else
+      Task.all.order(implementation_date: 'ASC')
+    end
+  end
 end

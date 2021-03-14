@@ -1,0 +1,45 @@
+<div class=task-index-main>
+  <div class=task-index-left>
+    <ul class=welcome-contents-list>
+      <li><%= link_to "To Do Lists", "#", class:"task-left-content" %> </li>
+      <li><%= link_to "Member Status", "#", class:"task-left-content" %> </li>
+      <li><%= link_to "Chat", "#", class:"task-left-content" %> </li>
+    </ul>
+  </div>
+  <div class=task-index-right>
+    <div class=task-index-search-class>
+      <div class=task-all-search>
+        <%= form_with(url:search_tasks_path, local: true, method: :get, class:"search-form") do |f| %>
+          <%= f.text_field :keyword, placeholder:"検索したいタスク名のキーワードを入力してください", class:'search-form-text_field' %>
+          <%= f.submit "検索" , class:"search-form-btn"%>
+        <% end %>
+      </div>
+      <div class=task-name-search-order>
+        <div class=task-search-implementation_date>
+          <%= link_to "タスク実施日順に並び替え", tasks_path, class:"search-order-btn"%>
+        </div>
+        <div class=task-search-created_at>
+          <%= link_to "タスク登録日順に並び替え", search_created_at_tasks_path, class:"search-order-btn"%>
+        </div>
+        <div class=task-search-dead_line_date>
+          <%= link_to "デッドライン順に並び替え",  search_dead_line_date_tasks_path, class:"search-order-btn"%>
+        </div>
+      </div>
+    </div>
+
+    <div class=task-index-all-class>
+      <% @tasks.each do |task| %>
+        <ul class= task-content >
+          <li>タスク項目：<%= task.name %></li>
+          <li>推定所要時間：<%= task.time_required.name %></li>
+          <li>タスク実施日：<%= task.implementation_date.strftime("%Y年%#m月%#d日")%></li>
+          <li>デッドライン：<%= task.dead_line_date.strftime("%Y年%#m月%#d日 %H:%M")%></li>
+          <li>作業者：<%= User.find(task.operator_id).last_name%><%= User.find(task.operator_id).first_name%></li>
+          <li>登録者：<%= User.find(task.user_id).last_name%><%= User.find(task.user_id).first_name%></li>
+          <li>登録日：<%= task.created_at.strftime("%Y年%#m月%#d日") %></li>
+        </ul>
+      <% end %>
+    </div>
+
+  </div>
+</div>
