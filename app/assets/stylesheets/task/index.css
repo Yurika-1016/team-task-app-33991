@@ -1,5 +1,4 @@
 .task-index-main{
-  
   display:flex;
   top: 70px;
   width:100vw;
@@ -8,8 +7,9 @@
 
 .task-index-left{
   position: fixed;
+  left:0;
   top: 70px;
-  width: 250px;
+  width: 300px;
   height: calc(100vh - 90px);
   background-color: antiquewhite;
 }
@@ -33,13 +33,13 @@
 
 .task-index-right{
   width: calc(100vw - 250px);
-  margin-left: 250px;
+  margin-left: 300px;
 }
 
 .task-index-search-class{
   position: fixed;
   top: 70px;
-  left:250px;
+  left:300px;
   height: 100px;
   width: calc(100vw - 250px);
   background-color: gainsboro;
