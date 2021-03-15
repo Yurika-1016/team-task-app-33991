@@ -4,6 +4,9 @@
   height: 100vh;
   text-align: center;
   padding-top: 50px;
+  position: fixed;
+  left:0;
+  top:0;
 }
 .title-new{
   font-family: comic sans MS;

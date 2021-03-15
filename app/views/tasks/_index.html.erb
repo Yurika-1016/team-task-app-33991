@@ -30,13 +30,21 @@
     <div class=task-index-all-class>
       <% @tasks.each do |task| %>
         <ul class= task-content >
-          <li>タスク項目：<%= task.name %></li>
-          <li>推定所要時間：<%= task.time_required.name %></li>
-          <li>タスク実施日：<%= task.implementation_date.strftime("%Y年%#m月%#d日")%></li>
-          <li>デッドライン：<%= task.dead_line_date.strftime("%Y年%#m月%#d日 %H:%M")%></li>
-          <li>作業者：<%= User.find(task.operator_id).last_name%><%= User.find(task.operator_id).first_name%></li>
-          <li>登録者：<%= User.find(task.user_id).last_name%><%= User.find(task.user_id).first_name%></li>
-          <li>登録日：<%= task.created_at.strftime("%Y年%#m月%#d日") %></li>
+          <div class= task-content-list >
+            <li>タスク項目：<%= task.name %></li>
+            <li>推定所要時間：<%= task.time_required.name %></li>
+            <li>タスク実施日：<%= task.implementation_date.strftime("%Y年%#m月%#d日")%></li>
+            <li>デッドライン：<%= task.dead_line_date.strftime("%Y年%#m月%#d日 %H:%M")%></li>
+            <li>作業者：<%= User.find(task.operator_id).last_name%><%= User.find(task.operator_id).first_name%></li>
+            <li>登録者：<%= User.find(task.user_id).last_name%><%= User.find(task.user_id).first_name%></li>
+            <li>登録日：<%= task.created_at.strftime("%Y年%#m月%#d日") %></li>
+          </div>
+          <div class=task-edit-destroy>
+            <% if task.user_id == current_user.id %>
+              <%= link_to "edit", edit_task_path(task.id), class:"task-edit-destroy-btn"%>
+              <%= link_to "delete", task_path(task.id), method: :delete, class:"task-edit-destroy-btn"%>
+            <% end %>
+          </div>
         </ul>
       <% end %>
     </div>

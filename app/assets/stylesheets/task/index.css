@@ -95,4 +95,13 @@
   background-color: #f6f6f6;
   border-left: 6px solid #ccc;
   font-family: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.task-edit-destroy-btn{
+  color: gray;
+  text-decoration: underline;
+  margin-left: 10px;
 }
