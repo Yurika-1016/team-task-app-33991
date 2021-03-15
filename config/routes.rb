@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "welcome#index"
-  resources :tasks, only:[:new, :create, :index] do
+  resources :tasks, only:[:new, :create, :index, :edit, :update, :destroy] do
     collection do
       get 'search'
     end

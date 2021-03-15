@@ -1,0 +1,59 @@
+<div class="main-task-new">
+  <div class="title-new">Edit of new Task</div>
+
+  <div class="task-field-group">
+    <%= form_with model: @task, url: task_path, local: true  do |f| %>
+    <%= render "shared/error_messages", locals:{model:@task}, model: f.object %>
+
+    <div class="task-field">
+      <div class="task-label_name">
+        <%= f.label :name, "タスク項目" %>
+      </div>
+      <div class="label_form_area">
+        <%= f.text_field :name, placeholder: "例）○○資料を△社に送付", class:"task-label_form" %>
+      </div>
+   </div>
+
+    <div class="task-field">
+      <div class="task-label_name">
+        <%= f.label :time_required_id, "推定所要時間", class:"label_name" %>
+      </div>
+      <div class="label_form_area">
+        <%= f.collection_select(:time_required_id, TimeRequired.all, :id, :name, {}, {class:"select-box"}) %>
+      </div>
+    </div>
+
+    <div class="task-field">
+      <div class="task-label_name">
+        <%= f.label :implementation_date, "タスク実施日", class:"label_name" %>
+      </div>
+      <div class="label_form_area">
+        <%= f.date_select :implementation_date, class:"date-box"  %>
+      </div>
+    </div>
+
+    <div class="task-field">
+      <div class="task-label_name">
+        <%= f.label :dead_line_date, "デッドライン", class:"label_name" %>
+      </div>
+      <div class="label_form_area">
+        <%= f.datetime_select :dead_line_date, class:"datetime-box"  %>
+      </div>
+    </div>
+
+    <div class="task-field">
+      <div class="task-label_name">
+        <%= f.label :operator_id %>
+      </div>
+      <div class="label_form_area">
+        <%= f.collection_select(:operator_id, User.all, :id, :last_name, {}, {class:"select-box"}) %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "変更内容を更新", class:"task-action-btn" %>
+    </div>
+    <% end %>
+  </div>
+    <%= link_to "Top page", root_path %>
+</div>
