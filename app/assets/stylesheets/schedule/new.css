@@ -1,0 +1,20 @@
+/* task/newのcssを大部分使いまわしている */
+
+.main-schedule-new{
+  background-color: honeydew;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  padding-top: 50px;
+  position:fixed;
+  left: 0;
+  top:0;
+}
+
+.schedule-action-btn{
+  border-radius: 5px;
+  border: 1px solid white;
+  width: 200px;
+  height:40px;
+  background-color: mediumaquamarine;
+}
