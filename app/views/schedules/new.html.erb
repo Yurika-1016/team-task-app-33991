@@ -1,0 +1,32 @@
+<div class="main-schedule-new">
+  <div class="title-new">Registration of Today's Schedule</div>
+
+  <div class="task-field-group">
+    <%= form_with model: @schedule, url: schedules_path, local: true  do |f| %>
+    <%= render "shared/error_messages", locals:{model:@schedule}, model: f.object %>
+
+    <div class="task-field">
+      <div class="task-label_name">
+        <%= f.label :date, "日付", class:"label_name" %>
+      </div>
+      <div class="label_form_area">
+        <%= f.date_select :date, class:"date-box"  %>
+      </div>
+    </div>
+
+    <div class="task-field">
+      <div class="task-label_name">
+        <%= f.label :time_limit_id %>
+      </div>
+      <div class="label_form_area">
+        <%= f.collection_select(:time_limit_id, TimeLimit.all, :id, :name, {}, {class:"select-box"}) %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "スケジュールを登録", class:"schedule-action-btn" %>
+    </div>
+    <% end %>
+  </div>
+    <%= link_to "Top page", root_path %>
+</div>

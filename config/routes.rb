@@ -12,4 +12,5 @@ Rails.application.routes.draw do
       get 'search_dead_line_date'
     end
   end
+  resources :schedules, only:[:new, :create]
 end

@@ -119,8 +119,8 @@ https://github.com/Yurika-1016/team-task-app-33991.git
 ## Schedulesテーブル
 |           column           |      type       |                            option                                |
 | -------------------------- | --------------- | ---------------------------------------------------------------- |
-|           date             |     datetime    |                           null:false                             |
-|       time_limit_id        |     integer     |       null:false, numericality: { other_than: 0 }                |
+|           date             |     datetime    |           null:false, uniqueness: { scope: :user }               |
+|       time_limit_id        |     integer     |                           null:false                             |
 |          user_id           |    references   |                  null:false, foreign_keys: true                  |
 ### Association
 - belongs_to :user
