@@ -1,0 +1,20 @@
+/* schedule/newのcssを大部分使いまわしている */
+
+.main-total-new{
+  background-color: lightcyan;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  padding-top: 50px;
+  position:fixed;
+  left: 0;
+  top:0;
+}
+
+.total-action-btn{
+  border-radius: 5px;
+  border: 1px solid white;
+  width: 200px;
+  height:40px;
+  background-color: skyblue;
+}

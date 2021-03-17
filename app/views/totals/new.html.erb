@@ -1,0 +1,32 @@
+<div class="main-total-new">
+  <div class="title-new">Registration of Working hours</div>
+
+  <div class="task-field-group">
+    <%= form_with model: @total, url: totals_path, local: true  do |f| %>
+    <%= render "shared/error_messages", locals:{model:@total}, model: f.object %>
+
+    <div class="task-field">
+      <div class="task-label_name">
+        <%= f.label :date, "日付", class:"label_name" %>
+      </div>
+      <div class="label_form_area">
+        <%= f.date_select :date, class:"date-box"  %>
+      </div>
+    </div>
+
+    <div class="task-field">
+      <div class="task-label_name">
+        <%= f.label :勤務時間（半角数字で入力してください） %>
+      </div>
+      <div class="label_form_area">
+        <%= f.text_field :working_hour, class:"total-form-area" %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "勤務時間を登録", class:"total-action-btn" %>
+    </div>
+    <% end %>
+  </div>
+    <%= link_to "Top page", root_path %>
+</div>

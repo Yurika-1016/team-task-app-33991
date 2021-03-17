@@ -13,4 +13,5 @@ Rails.application.routes.draw do
     end
   end
   resources :schedules, only:[:new, :create]
+  resources :totals, only:[:new, :create]
 end
