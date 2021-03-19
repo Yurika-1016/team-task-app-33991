@@ -1,4 +1,11 @@
 class SchedulesController < ApplicationController
+  def index
+    @users = User.all
+    @schedule = Schedule.where('date >= ?', Date.today)
+    @total = Total.where(date: Date.today.all_month)
+    @tasks = Task.where(implementation_date: Date.today)
+  end
+
   def new
     @schedule = Schedule.new
   end
