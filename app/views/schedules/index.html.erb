@@ -27,7 +27,8 @@
         </li>
 
         <li class='member-name-class'>
-          <% if user.schedules.present?%>
+        <%# ActionView::Template::Error (undefined method `[]' for nil:NilClass): %>
+          <% if user.schedules.present? && @schedule.present? %>
             本日の帰宅時間：<%= TimeLimit.find(@schedule[0][:time_limit_id]).name %>
           <% else %>
             本日の帰宅時間：未登録
@@ -50,7 +51,7 @@
 
         <li class='member-tasks-class'>
         本日のTo Doリスト
-          <% if user.tasks.present?%>
+          <% if user.present? %>
             <% @tasks.each do |task|%>
               <% if task.operator_id == user.id%>
                 <li class='member-task-class'>
@@ -60,8 +61,6 @@
                 </li>
               <% end %>
             <% end %>
-          <% else %>
-            なし
           <% end %>
         </li>
 
