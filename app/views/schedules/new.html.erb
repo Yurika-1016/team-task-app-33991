@@ -16,7 +16,7 @@
 
     <div class="task-field">
       <div class="task-label_name">
-        <%= f.label :time_limit_id %>
+        <%= f.label :帰宅時間 %>
       </div>
       <div class="label_form_area">
         <%= f.collection_select(:time_limit_id, TimeLimit.all, :id, :name, {}, {class:"select-box"}) %>

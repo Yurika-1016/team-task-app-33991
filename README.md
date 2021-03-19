@@ -133,3 +133,4 @@ https://github.com/Yurika-1016/team-task-app-33991.git
 |          user_id           |    references   |                  null:false, foreign_keys: true                  |
 ### Association
 - belongs_to :user
+

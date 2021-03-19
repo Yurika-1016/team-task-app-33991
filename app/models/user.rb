@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_one_attached :image
   has_many :tasks
   has_many :schedules
+  has_many :totals
 end

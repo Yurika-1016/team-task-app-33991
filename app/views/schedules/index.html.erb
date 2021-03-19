@@ -1,0 +1,74 @@
+<%= render 'shared/header'%>
+
+<div class='member-main'>
+  <div class="member-title">
+    <%= "#{Date.today.strftime('%Y年%m月%d日')}のチームメンバーの予定" %>
+  </div>
+  <div class="member-all">
+    <% @users.each do |user| %>
+
+      <div class='member-profile-class'>
+      <ul class='member-profile'>
+        <li class= 'member-image-class'>
+          <% if user.image.attached? %>
+            <%= image_tag user.image, class:"member-image" %>
+          <% else %>
+            <%= image_tag '/images/saru.png', class:"member-image" %>
+          <% end %>
+        </li>
+
+        <li class='member-position-class'>
+          <% if user.position == true %>
+            リーダー
+          <% end %>
+        </li>
+        <li class='member-name-class'>
+          <%= user.last_name%> <%= user.first_name%>
+        </li>
+
+        <li class='member-name-class'>
+          <% if user.schedules.present?%>
+            本日の帰宅時間：<%= TimeLimit.find(@schedule[0][:time_limit_id]).name %>
+          <% else %>
+            本日の帰宅時間：未登録
+          <% end %>
+        </li>
+
+        <li class='member-name-class'>
+          <% if user.totals.present?%>
+            <%# <% this_month = Date.today.all_month %> 
+            <%# <% @total.each do |total| %>
+              <%# <% if this_month.include?(Total.pluck(:date))%>
+                <%# <%= @data = total.pluck(:working_hour).sum %> 
+              <%# <% end %> 
+            <%# <% end %> 
+            今月の累積勤務時間：<%= @total.pluck(:working_hour).sum %> 時間
+          <% else %>
+            今月の累積勤務時間：0時間
+          <% end %>
+        </li>
+
+        <li class='member-tasks-class'>
+        本日のTo Doリスト
+          <% if user.tasks.present?%>
+            <% @tasks.each do |task|%>
+              <% if task.operator_id == user.id%>
+                <li class='member-task-class'>
+                <li>・<%= task.name %>
+                (所要時間：<%= task.time_required.name %>)</li>
+                <%# デッドライン：<%=  task.dead_line_date.strftime("%Y年%#m月%#d日 %H:%M") %> 
+                </li>
+              <% end %>
+            <% end %>
+          <% else %>
+            なし
+          <% end %>
+        </li>
+
+      </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render 'shared/footer'%>
