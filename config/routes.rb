@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :users
   root to: "welcome#index"
   resources :tasks, only:[:new, :create, :index, :edit, :update, :destroy] do
@@ -14,4 +15,5 @@ Rails.application.routes.draw do
   end
   resources :schedules, only:[:new, :create, :index]
   resources :totals, only:[:new, :create]
+  resources :users,only:[:show]
 end

@@ -1,0 +1,45 @@
+<%= render 'shared/header'%>
+
+<div class="user-page-main">
+  <div class="user-page-left">
+    <ul class='member-profile'>
+      <li class= 'member-image-class'>
+        <% if @user.image.attached? %>
+          <%= image_tag @user.image, class:"member-image" %>
+        <% else %>
+          <%= image_tag '/images/saru.png', class:"member-image" %>
+        <% end %>
+      </li>
+
+      <li class='member-position-class'>
+        <% if @user.position == true %>
+          リーダー
+        <% end %>
+      </li>
+
+      <li class='member-name-class'>
+        名前：<%= @user.last_name%> <%= @user.first_name%>
+      </li>
+
+      <li class='member-name-class'>
+        email：<%= @user.email%> 
+      </li>
+
+    </ul>
+
+    <div class="schedule-total-btn-class">
+        <ul class=welcome-contents-list>
+          <li><%= link_to "スケジュール登録", new_schedule_path, class:"user-left-content" %> </li>
+          <li><%= link_to "勤務時間登録", new_total_path, class:"user-left-content" %> </li>
+          <li><%= link_to "To Do Lists", tasks_path, class:"user-task-left-content" %> </li>
+          <li><%= link_to "Member Status", schedules_path, class:"user-task-left-content" %> </li>
+          <li><%= link_to "Chat", "#", class:"user-task-left-content" %> </li>
+        </ul>
+    </div>
+
+  </div>
+  <div class="user-page-right">
+  </div>
+</div>
+
+<%= render 'shared/footer'%>
