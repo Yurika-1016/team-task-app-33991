@@ -1,0 +1,36 @@
+.user-page-main{
+  margin: 70px 0 20px;
+  left: 0;
+}
+
+.user-page-left{
+  border-right: double lightgray;
+  padding-top: 5px;
+  width: 30%;
+}
+
+.user-task-left-content{
+  margin: 20px 40px 10px;
+  font-size: 14px;
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: cornflowerblue;
+  color: #FFF;
+  border-radius: 3px;
+  box-shadow: 0px 0px 0px 5px cornflowerblue;
+  border: dashed 1px #FFF;
+}
+
+.user-left-content{
+  margin: 20px 40px 10px;
+  font-size: 13px;
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: lightcoral;
+  color: #FFF;
+  border-radius: 3px;
+  box-shadow: 0px 0px 0px 5px lightcoral;
+  border: dashed 1px #FFF;
+}
