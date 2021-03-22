@@ -28,10 +28,10 @@ RSpec.describe Task, type: :model do
         @task.valid?
         expect(@task.errors.full_messages).to include('Time required must be other than 0')
       end
-      it 'implementation_dateが空だと登録できない' do
-        @task.implementation_date = nil
+      it 'start_timeが空だと登録できない' do
+        @task.start_time = nil
         @task.valid?
-        expect(@task.errors.full_messages).to include("Implementation date can't be blank")
+        expect(@task.errors.full_messages).to include("Start time can't be blank")
       end
       it 'dead_line_dateが空だと登録できない' do
         @task.dead_line_date = nil

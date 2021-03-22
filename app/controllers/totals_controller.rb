@@ -1,4 +1,6 @@
 class TotalsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @total = Total.new
   end
