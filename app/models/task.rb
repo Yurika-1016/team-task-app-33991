@@ -2,7 +2,7 @@ class Task < ApplicationRecord
   belongs_to :user
 
   with_options presence: true do
-    validates :name, :implementation_date, :dead_line_date
+    validates :name, :start_time, :dead_line_date
     with_options numericality: { other_than: 0 } do
       validates :time_required_id, :operator_id
     end
@@ -15,7 +15,7 @@ class Task < ApplicationRecord
     if search != ''
       Task.where('name LIKE(?)', "%#{search}%")
     else
-      Task.all.order(implementation_date: 'ASC')
+      Task.all.order(start_time: 'ASC')
     end
   end
 end

@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @tasks = Task.all.order(implementation_date: 'ASC')
+    @tasks = Task.all.order(start_time: 'ASC')
   end
 
   def new
@@ -18,7 +20,7 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
-    redirect_to tasks_path unless current_user.id == @task.user_id
+    redirect_to tasks_path unless (current_user.id == @task.user_id) || (current_user.id == @task.operator_id)
   end
 
   def update
@@ -32,6 +34,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task = Task.find(params[:id])
+    redirect_to tasks_path unless (current_user.id == @task.user_id) || (current_user.id == @task.operator_id)
     @task.destroy
     redirect_to tasks_path
   end
@@ -51,7 +54,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :time_required_id, :implementation_date, :dead_line_date,
+    params.require(:task).permit(:name, :time_required_id, :start_time, :dead_line_date,
                                  :operator_id).merge(user_id: current_user.id)
   end
 end

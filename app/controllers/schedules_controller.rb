@@ -1,9 +1,11 @@
 class SchedulesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @users = User.all
     @schedule = Schedule.where('date >= ?', Date.today)
     @total = Total.where(date: Date.today.all_month)
-    @tasks = Task.where(implementation_date: Date.today)
+    @tasks = Task.where(start_time: Date.today)
   end
 
   def new

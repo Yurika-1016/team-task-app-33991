@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2021_03_17_060916) do
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "time_required_id", null: false
-    t.date "implementation_date", null: false
+    t.datetime "start_time", null: false
     t.datetime "dead_line_date", null: false
     t.integer "operator_id", null: false
     t.bigint "user_id", null: false

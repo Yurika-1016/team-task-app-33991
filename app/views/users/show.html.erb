@@ -39,7 +39,16 @@
 
   </div>
   <div class="user-page-right">
+  <%= month_calendar events: @tasks do |date, tasks| %>
+    <%= date.day %>
+    <% tasks.each do |task| %>
+      <div class="task-calendar-list">
+        ・<%= link_to "#{task.name}", edit_task_path(task.id), class:"task-calender-list-btn" %>
+      </div>
+    <% end %>
+  <% end %>
   </div>
+
 </div>
 
 <%= render 'shared/footer'%>

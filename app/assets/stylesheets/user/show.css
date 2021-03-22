@@ -1,29 +1,29 @@
 .user-page-main{
   margin: 70px 0 20px;
   left: 0;
+  display: flex;
 }
 
 .user-page-left{
-  border-right: double lightgray;
   padding-top: 5px;
-  width: 30%;
+  width: 25%;
 }
 
 .user-task-left-content{
-  margin: 20px 40px 10px;
-  font-size: 14px;
+  margin: 10px 20px 10px;
+  font-size: 13px;
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
   background: cornflowerblue;
   color: #FFF;
   border-radius: 3px;
-  box-shadow: 0px 0px 0px 5px cornflowerblue;
+  box-shadow: 0px 0px 0px 3px cornflowerblue;
   border: dashed 1px #FFF;
 }
 
 .user-left-content{
-  margin: 20px 40px 10px;
+  margin: 10px 20px 10px;
   font-size: 13px;
   display: inline-block;
   padding: 0.5em 1em;
@@ -31,6 +31,24 @@
   background: lightcoral;
   color: #FFF;
   border-radius: 3px;
-  box-shadow: 0px 0px 0px 5px lightcoral;
+  box-shadow: 0px 0px 0px 3px lightcoral;
   border: dashed 1px #FFF;
+}
+
+.user-page-right{
+  padding-top: 40px;
+  padding-right: 20px;
+  width: 75%;
+}
+
+.simple-calendar{
+  width: 100%;
+}
+
+.task-calendar-list{
+  font-size: 12px;
+}
+
+.task-calender-list-btn{
+  color: dodgerblue;
 }
