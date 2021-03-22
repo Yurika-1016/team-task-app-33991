@@ -33,7 +33,7 @@
           <div class= task-content-list >
             <li>タスク項目：<%= task.name %></li>
             <li>推定所要時間：<%= task.time_required.name %></li>
-            <li>タスク実施日：<%= task.start_time.strftime("%Y年%#m月%#d日 %H:%M") %></li>
+            <li>タスク実施日：<%= task.start_time.strftime("%Y年%#m月%#d日") %></li>
             <li>デッドライン：<%= task.dead_line_date.strftime("%Y年%#m月%#d日 %H:%M")%></li>
             <li>作業者：<%= User.find(task.operator_id).last_name%><%= User.find(task.operator_id).first_name%></li>
             <li>登録者：<%= User.find(task.user_id).last_name%><%= User.find(task.user_id).first_name%></li>
