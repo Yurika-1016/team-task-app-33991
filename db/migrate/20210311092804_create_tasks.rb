@@ -3,7 +3,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
     create_table :tasks do |t|
       t.string :name, null: false
       t.integer :time_required_id, null: false, numericality: { other_than: 0 }
-      t.date :start_time, null: false
+      t.datetime :start_time, null: false
       t.datetime :dead_line_date, null: false
       t.integer :operator_id, null: false, numericality: { other_than: 0 }
       t.references :user, null:false, foreign_keys: true
