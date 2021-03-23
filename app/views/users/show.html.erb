@@ -2,6 +2,7 @@
 
 <div class="user-page-main">
   <div class="user-page-left">
+    
     <ul class='member-profile'>
       <li class= 'member-image-class'>
         <% if @user.image.attached? %>
@@ -26,6 +27,10 @@
       </li>
 
     </ul>
+
+    <div class="user-information-edit">
+      <%= link_to "ユーザー登録情報の変更",  edit_user_registration_path, class:"user-information-edit_btn" %>
+    </div>
 
     <div class="schedule-total-btn-class">
         <ul class=welcome-contents-list>

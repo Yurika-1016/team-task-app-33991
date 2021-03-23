@@ -1,43 +1,90 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="main-new">
+  <div class="title-new">Change Registration Information</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field-group">
+    <%= form_with model: @user, url:  user_registration_path, method: :patch, local: true  do |f| %>
+    <%= render "shared/error_messages", locals:{model:@user}, model: f.object %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="field">
+      <div class="label_name">
+        <%= f.label :last_name, "苗字" %>
+      </div>
+      <div class="label_form_area">
+        <%= f.text_field :last_name, placeholder: "例）田中", class:"label_form" %>
+      </div>
+   </div>
+
+    <div class="field">
+      <div class="label_name">
+        <%= f.label :first_name, "名前", class:"label_name" %>
+      </div>
+      <div class="label_form_area">
+        <%= f.text_field :first_name, placeholder: "例）太郎", class:"label_form"  %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="label_name">
+        <%= f.label :position, "リーダーの場合チェックしてください", class:"label_name" %>
+      </div>
+      <div class="label_form_area">
+        <%= f.check_box :position, class:"label_checkbox"  %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="label_name">
+        <%= f.label :email %>
+      </div>
+      <div class="label_form_area">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="label_name">
+        <%= f.label :現在のパスワード %>
+      </div>
+      <div class="label_name">
+        <%= f.password_field :current_password, autocomplete: "current-password", class:"text-form" %>
+      </div>
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+    <div class="field">
+      <div class="label_name">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        (<%= @minimum_password_length %> 文字以上)
+        <% end %><br />
+      </div>
+      <div class="label_name">
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+    <div class="field">
+      <div class="label_name">
+        <%= f.label :password_confirmation %>
+      </div>
+      <div class="label_form_area">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+    </div>
+
+    <div class="image-field">
+      <div class="label_name">
+        <%= f.label :image, "アイコン写真" %>
+      </div>
+      <div class="label_form_area">
+        <%= f.file_field :image, class:"image-btn" %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "登録情報変更", class:"action-btn" %>
+    </div>
     <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+    
+    <%= link_to "Top page", root_path %>
+</div>
