@@ -9,6 +9,15 @@
   width: 25%;
 }
 
+.user-information-edit{
+  margin-left: 40px;
+}
+
+.user-information-edit_btn{
+  color: dodgerblue;
+  font-size: 13px;
+}
+
 .user-task-left-content{
   margin: 10px 20px 10px;
   font-size: 13px;
