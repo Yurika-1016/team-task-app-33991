@@ -1,0 +1,55 @@
+.comments-main{
+  margin-top: 90px;
+  margin-left: 20%;
+  margin-bottom: 30px;
+}
+
+.comment-title{
+  color: gray;
+}
+
+.comment-form{
+  margin-top: 5px;
+}
+
+.comment-form-area{
+  width: 60%;
+  height: 30px;
+}
+
+.comment-form-btn{
+  margin-left: 5px;
+  border: 1px solid plum;
+  background-color: plum;
+  height: 30px;
+  width: 60px
+}
+
+.comments-all{
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.comment{
+  margin-top: 30px;
+  width: 70%;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+}
+
+.comment-information{
+  color: lightgray;
+  display: flex;
+}
+
+.comment-username{
+  color: gray;
+}
+
+.comment-created_at{
+  margin-left: 30px;
+}
+
+.comment-return_toppage{
+  margin-left: 33%;
+}

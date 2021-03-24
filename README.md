@@ -102,6 +102,7 @@ https://github.com/Yurika-1016/team-task-app-33991.git
 - has_many :tasks
 - has_many :schedules
 - has_many :totals
+- has_many :comments
 
 ## Tasksテーブル
 |           column           |      type       |                            option                                |
@@ -112,7 +113,6 @@ https://github.com/Yurika-1016/team-task-app-33991.git
 |       dead_line_date       |     datetime    |                           null:false                             |
 |       operator_id          |     integer     |              null:false, numericality: { other_than: 0 }         |
 |          user_id           |    references   |                  null:false, foreign_keys: true                  |
-          |
 ### Association
 - belongs_to :user
 
@@ -129,8 +129,16 @@ https://github.com/Yurika-1016/team-task-app-33991.git
 |           column           |      type       |                            option                                |
 | -------------------------- | --------------- | ---------------------------------------------------------------- |
 |           date             |     datetime    |          null:false, uniqueness: { scope: :user }                |
-|      working_hour          |     integer     |          null:false, numericality: { only_integer: true }                |
+|      working_hour          |     integer     |          null:false, numericality: { only_integer: true }        |
 |          user_id           |    references   |                  null:false, foreign_keys: true                  |
 ### Association
 - belongs_to :user
 
+
+## Commentsテーブル
+|           column           |      type       |                            option                                |
+| -------------------------- | --------------- | ---------------------------------------------------------------- |
+|           text             |      text       |                           null:false                             |
+|          user_id           |    references   |                  null:false, foreign_keys: true                  |
+### Association
+- belongs_to :user

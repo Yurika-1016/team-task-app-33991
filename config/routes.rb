@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   resources :schedules, only:[:new, :create, :index]
   resources :totals, only:[:new, :create]
   resources :users,only:[:show]
+  resources :comments, only:[:new, :create]
 end

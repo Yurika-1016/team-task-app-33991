@@ -1,0 +1,38 @@
+<%= render 'shared/header'%>
+
+<div class="comments-main">
+  <div class="comment-title">
+    チャット機能を使って、話をしましょう
+  </div>
+
+  <div class="comment-form">
+    <%= form_with model: @comment, url:comments_path, local: true do |f|%>
+      <%= f.text_field :text, class:"comment-form-area", placeholder:"話したい内容を入力してください" %>
+      <%= f.submit "送信", class:"comment-form-btn" %>
+    <% end %>
+  </div>
+
+  <div class="comments-all", id="comments">
+    <% @comments.reverse_each do |comment|%>
+      <div class="comment">
+        <div class="comment-information">
+          <div class="comment-username">
+            <%= comment.user.last_name %> <%= comment.user.first_name %>
+          </div>
+          <div class="comment-created_at">
+            <%= comment.created_at.strftime("%Y/%#m/%#d %H:%M")%><br>
+          </div>
+        </div>
+        <div class="comment-text">
+          <%= comment.text %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "Top page", root_path, class:"comment-return_toppage" %>
+</div>
+
+
+
+<%= render 'shared/footer'%>
