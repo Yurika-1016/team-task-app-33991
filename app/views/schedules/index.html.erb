@@ -28,8 +28,9 @@
 
         <li class='member-name-class'>
         <%# ActionView::Template::Error (undefined method `[]' for nil:NilClass): %>
+          <% @schedule = @schedules.find_by(user_id: user.id) %>
           <% if user.schedules.present? && @schedule.present? %>
-            本日の帰宅時間：<%= TimeLimit.find(@schedule[0][:time_limit_id]).name %>
+            本日の帰宅時間：<%= TimeLimit.find(@schedule[:time_limit_id]).name %>
           <% else %>
             本日の帰宅時間：未登録
           <% end %>
@@ -43,6 +44,7 @@
                 <%# <%= @data = total.pluck(:working_hour).sum %> 
               <%# <% end %> 
             <%# <% end %> 
+            <% @total = @totals.where(user_id: user.id)%>
             今月の累積勤務時間：<%= @total.pluck(:working_hour).sum %> 時間
           <% else %>
             今月の累積勤務時間：0時間

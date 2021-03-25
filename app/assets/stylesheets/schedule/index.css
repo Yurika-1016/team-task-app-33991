@@ -7,6 +7,10 @@
   display: flex;
 }
 
+.member-profile{
+  width: 250px;
+}
+
 .member-image{
   width:150px;
   height: auto;
