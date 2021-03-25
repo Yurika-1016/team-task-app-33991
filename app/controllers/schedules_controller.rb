@@ -3,9 +3,9 @@ class SchedulesController < ApplicationController
 
   def index
     @users = User.all
-    @schedule = Schedule.where('date >= ?', Date.today)
-    @total = Total.where(date: Date.today.all_month)
-    @tasks = Task.where(start_time: Date.today)
+    @schedules = Schedule.where('date >= ?', Date.yesterday)
+    @totals = Total.where(date: Time.current.all_month)
+    @tasks = Task.where(start_time: Time.current.all_day)
   end
 
   def new
