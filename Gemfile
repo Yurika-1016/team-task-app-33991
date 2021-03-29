@@ -63,3 +63,4 @@ gem 'image_processing', '~>1.2'
 gem 'pry-rails'
 gem 'active_hash'
 gem "simple_calendar", "~> 2.0"
+gem "aws-sdk-s3", require: false
