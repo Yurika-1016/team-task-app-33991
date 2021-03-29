@@ -9,7 +9,7 @@
   position: fixed;
   left:0;
   top: 70px;
-  width: 300px;
+  width: 250px;
   height: calc(100vh - 90px);
   background-color: antiquewhite;
 }
@@ -19,7 +19,7 @@
 }
 
 .task-left-content{
-  margin: 20px 40px 20px;
+  margin: 20px 20px 20px;
   font-size: 15px;
   display: inline-block;
   padding: 0.5em 1em;
@@ -33,13 +33,13 @@
 
 .task-index-right{
   width: calc(100vw - 250px);
-  margin-left: 300px;
+  margin-left: 250px;
 }
 
 .task-index-search-class{
   position: fixed;
   top: 70px;
-  left:300px;
+  left:250px;
   height: 100px;
   width: calc(100vw - 250px);
   background-color: gainsboro;

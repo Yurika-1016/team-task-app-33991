@@ -1,19 +1,23 @@
 <div class=task-index-main>
+  <%# メニューバーを表示 %>
   <div class=task-index-left>
     <ul class=welcome-contents-list>
-      <li><%= link_to "To Do Lists", tasks_path, class:"task-left-content" %> </li>
       <li><%= link_to "Member Status", schedules_path, class:"task-left-content" %> </li>
       <li><%= link_to "Chat", new_comment_path, class:"task-left-content" %> </li>
     </ul>
   </div>
+
   <div class=task-index-right>
+    <%# 検索窓 %>
     <div class=task-index-search-class>
+      <%# ワード検索 %>
       <div class=task-all-search>
         <%= form_with(url:search_tasks_path, local: true, method: :get, class:"search-form") do |f| %>
           <%= f.text_field :keyword, placeholder:"検索したいタスク名のキーワードを入力してください", class:'search-form-text_field' %>
           <%= f.submit "検索" , class:"search-form-btn"%>
         <% end %>
       </div>
+      <%# 表示順の並び替え %>
       <div class=task-name-search-order>
         <div class=task-search-start_time>
           <%= link_to "タスク実施日順に並び替え", tasks_path, class:"search-order-btn"%>
@@ -27,9 +31,11 @@
       </div>
     </div>
 
+    <%# 登録されているタスクを表示（デフォルトはタスク実施日順で表示） %>
     <div class=task-index-all-class>
       <% @tasks.each do |task| %>
         <ul class= task-content >
+          <%# タスクの内容表示 %>
           <div class= task-content-list >
             <li>タスク項目：<%= task.name %></li>
             <li>推定所要時間：<%= task.time_required.name %></li>
@@ -39,6 +45,7 @@
             <li>登録者：<%= User.find(task.user_id).last_name%><%= User.find(task.user_id).first_name%></li>
             <li>登録日：<%= task.created_at.strftime("%Y年%#m月%#d日") %></li>
           </div>
+          <%# タスク設定者 or タスク作業者が編集・削除できる %>
           <div class=task-edit-destroy>
             <% if (current_user.id == task.user_id) || (current_user.id == task.operator_id)  %>
               <%= link_to "edit", edit_task_path(task.id), class:"task-edit-destroy-btn"%>

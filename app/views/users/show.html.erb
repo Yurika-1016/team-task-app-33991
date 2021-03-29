@@ -1,8 +1,9 @@
 <%= render 'shared/header'%>
 
 <div class="user-page-main">
+  <%# ユーザー情報やメニューバー表示 %>
   <div class="user-page-left">
-    
+    <%# メンバーのプロフィール表示 %>
     <ul class='member-profile'>
       <li class= 'member-image-class'>
         <% if @user.image.attached? %>
@@ -28,21 +29,25 @@
 
     </ul>
 
+    <%# ユーザー情報の編集 %>
     <div class="user-information-edit">
       <%= link_to "ユーザー登録情報の変更",  edit_user_registration_path, class:"user-information-edit_btn" %>
     </div>
 
+    <%# 勤務時間・帰宅時間登録・メニューバーの表示 %>
     <div class="schedule-total-btn-class">
         <ul class=welcome-contents-list>
           <li><%= link_to "スケジュール登録", new_schedule_path, class:"user-left-content" %> </li>
           <li><%= link_to "勤務時間登録", new_total_path, class:"user-left-content" %> </li>
           <li><%= link_to "To Do Lists", tasks_path, class:"user-task-left-content" %> </li>
           <li><%= link_to "Member Status", schedules_path, class:"user-task-left-content" %> </li>
-          <li><%= link_to "Chat", "#", class:"user-task-left-content" %> </li>
+          <li><%= link_to "Chat", new_comment_path, class:"user-task-left-content" %> </li>
         </ul>
     </div>
 
   </div>
+
+  <%# カレンダーで自分が作業者のタスク表示 %>
   <div class="user-page-right">
   <%= month_calendar events: @tasks do |date, tasks| %>
     <%= date.day %>

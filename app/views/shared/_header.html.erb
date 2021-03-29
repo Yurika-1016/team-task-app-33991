@@ -11,12 +11,12 @@
   <% end %>
   <div class= "right-main">
     <% if user_signed_in? %>
-      <%= link_to "new task", new_task_path, class:"header-btn" %>
-      <%= link_to "#{current_user.last_name} #{current_user.first_name}さん", user_path(current_user.id), class:"header-btn"%>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"header-btn"%>
+      <%= link_to "new task", new_task_path, class:"header-btn", id:"header-btn1" %>
+      <%= link_to "#{current_user.last_name} #{current_user.first_name}さん", user_path(current_user.id), class:"header-btn", id:"header-btn2"%>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"header-btn", id:"header-btn3"%>
     <% else %>
-      <%= link_to "ログイン", new_user_session_path, class:"header-btn"%>
-      <%= link_to "新規登録", new_user_registration_path, class:"header-btn"%>
+      <%= link_to "ログイン", new_user_session_path, class:"header-btn", id:"header-btn"%>
+      <%= link_to "新規登録", new_user_registration_path, class:"header-btn", id:"header-btn"%>
     <% end %>
   </div>
 </header>

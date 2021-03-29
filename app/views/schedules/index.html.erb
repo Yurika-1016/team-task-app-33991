@@ -4,11 +4,14 @@
   <div class="member-title">
     <%= "#{Date.today.strftime('%Y年%m月%d日')}のチームメンバーの予定" %>
   </div>
+  <%# メンバーを表示 %>
   <div class="member-all">
     <% @users.each do |user| %>
 
+      <%# 個人プロフィール表示 %>
       <div class='member-profile-class'>
       <ul class='member-profile'>
+        <%# プロフィール写真 %>
         <li class= 'member-image-class'>
           <% if user.image.attached? %>
             <%= image_tag user.image, class:"member-image" %>
@@ -16,45 +19,49 @@
             <%= image_tag '/images/saru.png', class:"member-image" %>
           <% end %>
         </li>
-
+        <%# リーダーならリーダーと表示する %>
         <li class='member-position-class'>
           <% if user.position == true %>
             リーダー
           <% end %>
         </li>
+        <%# 名前を表示 %>
         <li class='member-name-class'>
           <%= user.last_name%> <%= user.first_name%>
         </li>
 
+        <%# メンバーの今日の帰宅時間を表示 %>
         <li class='member-name-class'>
-        <%# ActionView::Template::Error (undefined method `[]' for nil:NilClass): %>
+        <%# @schedules(テーブル中のdate=今日のデータ)をuserのidが一致しているものを取得し@scheduleで登録 %>
           <% @schedule = @schedules.find_by(user_id: user.id) %>
-          <% if user.schedules.present? && @schedule.present? %>
+          <% if @schedule.present? %>
+            <%# ＠scheduleのtime_limit_idを取り出し、nameで出力 %>
             本日の帰宅時間：<%= TimeLimit.find(@schedule[:time_limit_id]).name %>
           <% else %>
             本日の帰宅時間：未登録
           <% end %>
         </li>
 
+        <%# 今月の勤務時間の合計を出力 %>
         <li class='member-name-class'>
+          <%# @totalsが一つでもあれば今月の勤務時間合計を出力 %>
           <% if user.totals.present?%>
-            <%# <% this_month = Date.today.all_month %> 
-            <%# <% @total.each do |total| %>
-              <%# <% if this_month.include?(Total.pluck(:date))%>
-                <%# <%= @data = total.pluck(:working_hour).sum %> 
-              <%# <% end %> 
-            <%# <% end %> 
+            <%# @totalsの中から該当するユーザーのidのデータのみ取得=@totalとする %>
             <% @total = @totals.where(user_id: user.id)%>
+            <%# @totalの配列内のデータを合計する %>
             今月の累積勤務時間：<%= @total.pluck(:working_hour).sum %> 時間
           <% else %>
             今月の累積勤務時間：0時間
           <% end %>
         </li>
 
+        <%# 今日のTaskを出力 %>
         <li class='member-tasks-class'>
         本日のTo Doリスト
           <% if user.present? %>
+            <%# @tasksを取得しそれぞれのtaskを表示 %>
             <% @tasks.each do |task|%>
+              <%# taskのoperator_idが該当するユーザーと一致するときにtaskを表示する %>
               <% if task.operator_id == user.id%>
                 <li class='member-task-class'>
                 <li>・<%= task.name %>

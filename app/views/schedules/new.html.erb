@@ -1,3 +1,4 @@
+<%# 帰宅時間を登録する %>
 <div class="main-schedule-new">
   <div class="title-new">Registration of Today's Schedule</div>
 
@@ -5,6 +6,7 @@
     <%= form_with model: @schedule, url: schedules_path, local: true  do |f| %>
     <%= render "shared/error_messages", locals:{model:@schedule}, model: f.object %>
 
+    <%# 日付設定 %>
     <div class="task-field">
       <div class="task-label_name">
         <%= f.label :date, "日付", class:"label_name" %>
@@ -14,6 +16,7 @@
       </div>
     </div>
 
+    <%# 帰宅時間の登録 %>
     <div class="task-field">
       <div class="task-label_name">
         <%= f.label :帰宅時間 %>
