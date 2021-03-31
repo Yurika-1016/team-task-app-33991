@@ -1,9 +1,9 @@
 <%# 勤務時間の登録 %>
 <div class="main-total-new">
-  <div class="title-new">Registration of Working hours</div>
+  <div class="title-new">Edit of Working hours</div>
 
   <div class="task-field-group">
-    <%= form_with model: @total, url: totals_path, local: true  do |f| %>
+    <%= form_with model: @total, url: total_path, method: :patch, local: true  do |f| %>
     <%= render "shared/error_messages", locals:{model:@total}, model: f.object %>
 
     <div class="task-field">
