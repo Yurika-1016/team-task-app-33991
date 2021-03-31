@@ -13,23 +13,23 @@ RSpec.describe Total, type: :model do
     end
 
     context '勤務時間登録ができない時' do
-      it 'dateが空では登録できない' do
-        @total.date = nil
+      it 'start_timeが空では登録できない' do
+        @total.start_time = nil
         @total.valid?
-        expect(@total.errors.full_messages).to include("Date can't be blank")
+        expect(@total.errors.full_messages).to include("Start Time can't be blank")
       end
       it 'working_hourが空では登録できない' do
         @total.working_hour = nil
         @total.valid?
         expect(@total.errors.full_messages).to include("Working hour can't be blank")
       end
-      it '同じdateでuser_idが既に登録されている登録できない' do
+      it '同じstart_timeでuser_idが既に登録されている登録できない' do
         @total.save
         another_total = FactoryBot.build(:total)
         another_total.user_id = @total.user_id
-        another_total.date = @total.date
+        another_total.start_time = @total.start_time
         another_total.valid?
-        expect(another_total.errors.full_messages).to include('Date has already been taken')
+        expect(another_total.errors.full_messages).to include('Start Time has already been taken')
       end
       it 'working_hourは半角英字では登録できない' do
         @total.working_hour = 'a'

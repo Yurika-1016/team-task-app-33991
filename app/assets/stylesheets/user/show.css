@@ -45,13 +45,19 @@
 }
 
 .user-page-right{
-  padding-top: 40px;
   padding-right: 20px;
   width: 75%;
+  margin-bottom: 30px;
 }
 
-.simple-calendar{
+.task-calendar-class{
   width: 100%;
+}
+
+.task-calendar-title{
+  background: linear-gradient(transparent 70%, #d2a6f0 70%);
+  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .task-calendar-list{
@@ -60,4 +66,38 @@
 
 .task-calender-list-btn{
   color: dodgerblue;
+  margin: 0;
+}
+
+.schedule-total-class{
+  display: flex;
+  justify-content: space-between;
+}
+
+.schedule-calendar-class{
+  width: 48%;
+  font-size: 12px;
+}
+
+.total-calendar-class{
+  width: 48%;
+  font-size: 12px;
+}
+
+.schedule-calendar-title{
+  background: linear-gradient(transparent 70%, #e5f0a6 70%);
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.total-calendar-title{
+  background: linear-gradient(transparent 70%, #9db9ec 70%);
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.schedule-total-calendar-list{
+  list-style: none;
 }

@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_03_24_012011) do
   end
 
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "date", null: false
+    t.datetime "start_time", null: false
     t.integer "time_limit_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2021_03_24_012011) do
   end
 
   create_table "totals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "date", null: false
+    t.datetime "start_time", null: false
     t.integer "working_hour", null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_totals_on_user_id"

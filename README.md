@@ -129,7 +129,7 @@ https://github.com/Yurika-1016/team-task-app-33991.git
 ## Schedulesテーブル
 |           column           |      type       |                            option                                |
 | -------------------------- | --------------- | ---------------------------------------------------------------- |
-|           date             |     datetime    |           null:false, uniqueness: { scope: :user }               |
+|         start_time         |     datetime    |           null:false, uniqueness: { scope: :user }               |
 |       time_limit_id        |     integer     |                           null:false                             |
 |          user_id           |    references   |                  null:false, foreign_keys: true                  |
 ### Association
@@ -138,7 +138,7 @@ https://github.com/Yurika-1016/team-task-app-33991.git
 ## Totalsテーブル
 |           column           |      type       |                            option                                |
 | -------------------------- | --------------- | ---------------------------------------------------------------- |
-|           date             |     datetime    |          null:false, uniqueness: { scope: :user }                |
+|         start_time         |     datetime    |          null:false, uniqueness: { scope: :user }                |
 |      working_hour          |     integer     |          null:false, numericality: { only_integer: true }        |
 |          user_id           |    references   |                  null:false, foreign_keys: true                  |
 ### Association

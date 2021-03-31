@@ -2,7 +2,7 @@ class Schedule < ApplicationRecord
   belongs_to :user
 
   with_options presence: true do
-    validates :date, uniqueness: { scope: :user }
+    validates :start_time, uniqueness: { scope: :user }
     validates :time_limit_id
   end
 

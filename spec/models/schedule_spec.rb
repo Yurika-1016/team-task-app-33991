@@ -14,9 +14,9 @@ RSpec.describe Schedule, type: :model do
 
     context '帰宅時間が登録できないとき' do
       it 'dateが空だと登録できない' do
-        @schedule.date = nil
+        @schedule.start_time = nil
         @schedule.valid?
-        expect(@schedule.errors.full_messages).to include("Date can't be blank")
+        expect(@schedule.errors.full_messages).to include("Start time can't be blank")
       end
       it 'time_limit_idが空だと登録できない' do
         @schedule.time_limit_id = nil
@@ -27,9 +27,9 @@ RSpec.describe Schedule, type: :model do
         @schedule.save
         another_schedule = FactoryBot.build(:schedule)
         another_schedule.user_id = @schedule.user_id
-        another_schedule.date = @schedule.date
+        another_schedule.start_time = @schedule.start_time
         another_schedule.valid?
-        expect(another_schedule.errors.full_messages).to include('Date has already been taken')
+        expect(another_schedule.errors.full_messages).to include('Start time has already been taken')
       end
     end
   end

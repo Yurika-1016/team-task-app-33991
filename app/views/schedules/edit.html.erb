@@ -1,9 +1,9 @@
 <%# 帰宅時間を登録する %>
 <div class="main-schedule-new">
-  <div class="title-new">Registration of Today's Schedule</div>
+  <div class="title-new">Edit of Today's Schedule</div>
 
   <div class="task-field-group">
-    <%= form_with model: @schedule, url: schedules_path, local: true  do |f| %>
+    <%= form_with model: @schedule, url: schedule_path, method: :patch, local: true  do |f| %>
     <%= render "shared/error_messages", locals:{model:@schedule}, model: f.object %>
 
     <%# 日付設定 %>

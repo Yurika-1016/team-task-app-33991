@@ -13,8 +13,8 @@ Rails.application.routes.draw do
       get 'search_dead_line_date'
     end
   end
-  resources :schedules, only:[:new, :create, :index]
-  resources :totals, only:[:new, :create]
+  resources :schedules, only:[:new, :create, :index, :edit, :update]
+  resources :totals, only:[:new, :create, :edit, :update]
   resources :users,only:[:show]
   resources :comments, only:[:new, :create]
 end

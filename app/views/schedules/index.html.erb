@@ -32,7 +32,7 @@
 
         <%# メンバーの今日の帰宅時間を表示 %>
         <li class='member-name-class'>
-        <%# @schedules(テーブル中のdate=今日のデータ)をuserのidが一致しているものを取得し@scheduleで登録 %>
+        <%# @schedules(テーブル中のstart_time=今日のデータ)をuserのidが一致しているものを取得し@scheduleで登録 %>
           <% @schedule = @schedules.find_by(user_id: user.id) %>
           <% if @schedule.present? %>
             <%# ＠scheduleのtime_limit_idを取り出し、nameで出力 %>
